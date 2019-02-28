@@ -39,6 +39,7 @@ class student extends person {
         this.previousBackground = StAtt.previousBackground;
         this.className = StAtt.className;
         this.favSubject= StAtt.favSubject;
+        this.grade = StAtt.grade;
     };
 
     listsSubjects(){
@@ -53,13 +54,14 @@ class student extends person {
         return console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 
-    graduate(grade){
-        if(grade > 70){
-            return console.log(`${this.name} graduated!!!`);
+    graduate() {
+        
+        if(this.grade > 70) {
+            return console.log(`${this.name} graduated!`);
         } else {
             return console.log(`${this.name} still need some work before graduation!`);
         }
-        
+
     }
 
 };//student
@@ -114,6 +116,7 @@ const fred = new projectManager({
     specialty: 'Front-end',
     favSubjects: ['JavaScript, HTML, CSS'],
     catchPhrase: `WEEWOOOOO`,
+    grade: 53,
     
   });
 
@@ -126,6 +129,7 @@ const fred = new projectManager({
     specialty: 'back-end',
     favSubjects: ['JavaScript, Ruby, CSS'],
     catchPhrase: `LAAAAALOOOOO`,
+    grade: 90,
     
   });
 
@@ -149,5 +153,5 @@ const fred = new projectManager({
   john.demo('Inheritance');
   trey.grade(alex, 'JavaScript');
   trey.standUp('WEB18');
-  alex.graduate(85);
-  tim.graduate(50);
+  alex.graduate();
+  tim.graduate();
