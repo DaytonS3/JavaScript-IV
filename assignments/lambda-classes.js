@@ -53,6 +53,15 @@ class student extends person {
         return console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 
+    graduate(grade){
+        if(grade > 70){
+            return console.log(`${this.name} graduated!!!`);
+        } else {
+            return console.log(`${this.name} still need some work before graduation!`);
+        }
+        
+    }
+
 };//student
 
 
@@ -105,6 +114,19 @@ const fred = new projectManager({
     specialty: 'Front-end',
     favSubjects: ['JavaScript, HTML, CSS'],
     catchPhrase: `WEEWOOOOO`,
+    
+  });
+
+  const tim = new student({
+    name: 'Tim',
+    location: 'South pole',
+    age: 27,
+    gender: 'male',
+    favLanguage: 'Ruby',
+    specialty: 'back-end',
+    favSubjects: ['JavaScript, Ruby, CSS'],
+    catchPhrase: `LAAAAALOOOOO`,
+    
   });
 
   const trey = new projectManager({
@@ -117,9 +139,15 @@ const fred = new projectManager({
     catchPhrase: 'HEEEHOOOOO',
   });
  
+
+
+
+
   alex.sprintChallenge('HTML');
   alex.PRAssignments('JavaScript');
   alex.listsSubjects();
   john.demo('Inheritance');
   trey.grade(alex, 'JavaScript');
   trey.standUp('WEB18');
+  alex.graduate(85);
+  tim.graduate(50);
