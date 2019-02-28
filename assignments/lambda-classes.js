@@ -30,6 +30,10 @@ class instructor extends person {
     grade(student, subject) {
         return console.log(`${student.name} receives a perfect score on ${subject}`);
     };
+
+    grader(student) {
+        return (student.grade += Math.ceil(Math.random() * 20));
+    }
 };//instructor
 
 
@@ -155,3 +159,4 @@ const fred = new projectManager({
   trey.standUp('WEB18');
   alex.graduate();
   tim.graduate();
+  console.log(john.grader(tim));
