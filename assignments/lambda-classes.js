@@ -27,8 +27,8 @@ class instructor extends person {
         return console.log(`Today we are learning about ${subject}`);
     };
 
-    grade(name, subject) {
-        return console.log(`${name} receives a perfect score on ${subject}`);
+    grade(student, subject) {
+        return console.log(`${student.name} receives a perfect score on ${subject}`);
     };
 };//instructor
 
@@ -42,15 +42,15 @@ class student extends person {
     };
 
     listsSubjects(){
-        return console.log(`${student.name}'s favorite subjects are ${this.favSubject}`);
+        return console.log(`${this.name}'s favorite subjects are ${student.favSubjects}`);
     };
 
     PRAssignments(subject){
-        return console.log(`${student.name} has submitted a PR for ${subject}`)
+        return console.log(`${this.name} has submitted a PR for ${subject}`)
     };
 
     sprintChallenge(subject){
-        return console.log(`${student.name} has begun sprint challenge on ${subject}`);
+        return console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 
 };//student
@@ -65,11 +65,11 @@ class projectManager extends instructor {
     };
 
     standUp(channel){
-        return console.log(`${projectManager.name} announces to ${channel}, @channel standby times!​​​​​`);
+        return console.log(`${this.name} announces to ${channel}, @channel standby times!​​​​​`);
     }
 
     debugsCode(student, subject){
-        return console.log(`${projectManager.name} debugs ${student.name}'s code on ${subject}`);
+        return console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 };//projectManager
 
@@ -103,7 +103,7 @@ const fred = new projectManager({
     gender: 'female',
     favLanguage: 'HTML',
     specialty: 'Front-end',
-    favSubject: 'JavaScript',
+    favSubjects: ['JavaScript, HTML, CSS'],
     catchPhrase: `WEEWOOOOO`,
   });
 
@@ -116,8 +116,10 @@ const fred = new projectManager({
     specialty: 'Game dev', 
     catchPhrase: 'HEEEHOOOOO',
   });
-
-  console.log(alex.sprintChallenge('HTML'));
-  console.log(alex.PRAssignments('JavaScript'));
-  console.log(john.demo('Inheritance'));
-  console.log(trey.grade('alex', 'JavaScript' ));
+ 
+  alex.sprintChallenge('HTML');
+  alex.PRAssignments('JavaScript');
+  alex.listsSubjects();
+  john.demo('Inheritance');
+  trey.grade(alex, 'JavaScript');
+  trey.standUp('WEB18');
